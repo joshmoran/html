@@ -1,0 +1,19 @@
+form {
+    display: flex;
+    align-content: space-between;
+    align-items: center;
+    justify-content: center;
+}
+
+form > * {
+    margin: 0.25em;
+}
+
+input {
+    height: 1.6em;
+}
+
+select, button { 
+
+    height: 2em !important;
+}
