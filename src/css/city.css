@@ -1,0 +1,39 @@
+
+
+.cityImg { 
+    height: 5em;
+    width: auto;
+}
+
+.row { 
+    display: flex;
+    flex-direction: row;
+
+}
+
+
+
+.row > * {
+    width: 50%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+h2 { 
+  
+    text-decoration: underline;
+} 
+
+h1, h2 {
+    text-align: center;
+    width: 100%;
+  
+}
+
+p { 
+    margin: 0.25em auto;
+}
