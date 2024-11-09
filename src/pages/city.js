@@ -1,28 +1,16 @@
 import React, { useState, setState,  useEffect }  from "react";
 import {  useLocation  } from 'react-router-dom';
-<<<<<<< HEAD
-import '../css/universal.css';
-import '../css/city.css';
-
-import '../weather.css';
-
-=======
 
 import '../css/universal.css';
 import '../css/city.css';
 
->>>>>>> cc639ea (Completed project, final touches and optimizations)
 const City = () => {
   const location = useLocation();
   const [ data, setData ] = useState( [] );
   const [ measure, setMeasure ] = useState( 'metric' );
 
-<<<<<<< HEAD
-  const url = 'http://192.168.0.220:3001';
-=======
   const url = process.env.REACT_APP_NODE_URL;
   
->>>>>>> cc639ea (Completed project, final touches and optimizations)
   const city = getCity();
 
   useEffect(  ( ) => {
@@ -35,13 +23,6 @@ const City = () => {
       return response.json() 
     })
     .then( data => setData( data) )
-<<<<<<< HEAD
-    return await weatherData;
-
-    setMeasure('metric');
-  };
-
-=======
     
 
     const pathName = window.location.pathname;
@@ -56,7 +37,6 @@ const City = () => {
     alert( window.location.pathname );
   }
 
->>>>>>> cc639ea (Completed project, final touches and optimizations)
   
   if ( data.hasOwnProperty('cod') && data.cod == 404 ){ 
     return (
@@ -70,19 +50,6 @@ const City = () => {
         <div className="weatherEl">
           <div>
             <h1>Weather for {data.name} in {data.sys.country}</h1>
-<<<<<<< HEAD
-            <p></p>
-            <div id>
-              <h2>Overview</h2>
-              <p>Current temperature: {data.weather[0].main}</p>
-              <img src={buildIcon()} />
-            </div>
-          </div>
-          <div className="row">
-            <div className="left">      
-              <h2>Temperature</h2>
-              <p>Feels like {getTempInCel()} {returnMeasurement()}</p>
-=======
             <h2>Quick Overview</h2>
             <div className="row">
               <div className="left">
@@ -115,7 +82,6 @@ const City = () => {
           <div className="row">
             <div className="left"> 
               <p>Feels like {returnFeelsLikeTemp()} {returnMeasurement()}</p>
->>>>>>> cc639ea (Completed project, final touches and optimizations)
               <p>Temperature: {returnTemp()} {returnMeasurement()}</p>
               <p>Minimum Temperature: {returnMinTemp()} {returnMeasurement()}</p>
               <p>Maximum Temperature: {returnMaxTemp()} {returnMeasurement()}</p>
@@ -123,9 +89,6 @@ const City = () => {
             <div className="right">
               <img className="cityImg" src="img/temperature-half.svg" />
             </div>
-<<<<<<< HEAD
-          </div>     
-=======
           </div>   
 
           {/* Wind */}
@@ -153,7 +116,6 @@ const City = () => {
               <img className="cityImg" src="img/cloud.svg" />
             </div>
           </div> 
->>>>>>> cc639ea (Completed project, final touches and optimizations)
         </div>
       </div>
 
@@ -161,11 +123,7 @@ const City = () => {
   } else { 
     return (
         <div className="container">
-<<<<<<< HEAD
-            <p>City not found.</p>
-=======
             <h1>City not found.</h1>
->>>>>>> cc639ea (Completed project, final touches and optimizations)
         </div>
     )
   }
@@ -188,9 +146,6 @@ const City = () => {
     }
   }
 
-<<<<<<< HEAD
-  // Temperature - Main
-=======
   // 
   // Introduction
   // 
@@ -239,7 +194,6 @@ const City = () => {
   // 
   // Temperature - Main
   // 
->>>>>>> cc639ea (Completed project, final touches and optimizations)
   function returnTemp() { 
     if ( measure === 'metric' ) { 
       return getTempInCel();
@@ -262,18 +216,6 @@ const City = () => {
   }
   
   // Temperature - Feels Like
-<<<<<<< HEAD
-  function returnTemp() { 
-    if ( measure === 'metric' ) { 
-      return getTempInCel();
-    } else {
-      return getTempInFar();
-    }
-  }
-
-  function getTempInCel() {
-    const kelvin = data.main.temp;
-=======
   function returnFeelsLikeTemp() { 
     if ( measure === 'metric' ) { 
       return getFeelsLikeTempInCel();
@@ -284,29 +226,19 @@ const City = () => {
 
   function getFeelsLikeTempInCel() {
     const kelvin = data.main.feels_like;
->>>>>>> cc639ea (Completed project, final touches and optimizations)
     const celsius = kelvin - 273.15;
     // alert( celsius) ;
     return celsius.toFixed(2);
   }
 
-<<<<<<< HEAD
-  function getTempInFar() {
-    const kelvin = data.main.temp;
-=======
   function getFeelsLikeTempInFar() {
     const kelvin = data.main.feels_like;
->>>>>>> cc639ea (Completed project, final touches and optimizations)
     const fahrenheit = ( kelvin - 273.15 ) * 1.8 + 32;
     return fahrenheit.toFixed(2);
   }
 
 
   // Temperature - Minimum
-<<<<<<< HEAD
-
-=======
->>>>>>> cc639ea (Completed project, final touches and optimizations)
   function returnMinTemp() { 
     if ( measure === 'metric' ) { 
       return getMinTempInCel();
@@ -350,17 +282,15 @@ const City = () => {
     return fahrenheit.toFixed(2);
   }
 
-<<<<<<< HEAD
-=======
   // 
   // Wind 
   // 
 
   function returnSpeedMeasurement() {
     if ( measure === 'metric' ) {
-      return 'Meters / Second';
+      return 'Meter / second';
     } else {
-      return 'Miles / Hour';
+      return 'Miles / hour';
     }
   }
 
@@ -475,7 +405,6 @@ const City = () => {
     return timeSplit[0];
   }
 
->>>>>>> cc639ea (Completed project, final touches and optimizations)
 }
 
 

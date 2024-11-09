@@ -7,10 +7,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.7.7",
-<<<<<<< HEAD
     "dotenv": "^16.4.5",
-=======
->>>>>>> cc639ea (Completed project, final touches and optimizations)
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.27.0",
@@ -43,12 +40,9 @@
     ]
   },
   "devDependencies": {
-<<<<<<< HEAD
-    "eslint-plugin-react-hooks": "^5.0.0"
-=======
+    "eslint-plugin-react-hooks": "^5.0.0",
     "dotenv": "^16.4.5",
     "eslint-plugin-react-hooks": "^5.0.0",
     "react-native-dotenv": "^3.4.11"
->>>>>>> cc639ea (Completed project, final touches and optimizations)
   }
 }

@@ -1,8 +1,6 @@
 .header, .container { 
-<<<<<<< HEAD
     width: 550px;
     margin: 0 auto;
-=======
     width: 90%;
     max-width: 600px;
     margin: 0 auto;
@@ -10,5 +8,4 @@
 
 .container { 
     margin-bottom: 5em;
->>>>>>> cc639ea (Completed project, final touches and optimizations)
 }

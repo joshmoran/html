@@ -17,18 +17,12 @@ const Navbar = () => {
     const navigate = useNavigate();
 
     const handleMeasure = (event) => {
-<<<<<<< HEAD
-=======
         event.preventDefault();
->>>>>>> cc639ea (Completed project, final touches and optimizations)
         setMeasure(event.target.value);
     }
 
     const handleCity = (event) => {
-<<<<<<< HEAD
-=======
         event.preventDefault();
->>>>>>> cc639ea (Completed project, final touches and optimizations)
         setCity(event.target.value);
     }
 
@@ -49,14 +43,8 @@ const Navbar = () => {
             <h1>Search for weather in your location</h1>
             <form onSubmit={searchWeather}>
                 <input type="text" onChange={handleCity} placeholder="Enter city name" name="city" value={city} />
-
-<<<<<<< HEAD
-                <select value="measure" onLoad={handleMeasure} onChange={handleMeasure}>
-                    <option value="metric" selected>Metric</option>
-=======
                 <select value="measure" onChange={handleMeasure} value={measure}>
                     <option value="metric">Metric</option>
->>>>>>> cc639ea (Completed project, final touches and optimizations)
                     <option value="imperial">Imperial</option>
                 </select>
 
