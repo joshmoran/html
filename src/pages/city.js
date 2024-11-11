@@ -1,16 +1,33 @@
 import React, { useState, setState,  useEffect }  from "react";
 import {  useLocation  } from 'react-router-dom';
 
+// import {APIProvider, Map, useMap,  MapCameraChangedEvent } from '@vis.gl/react-google-maps';
+
+import {APIProvider, Map} from '@vis.gl/react-google-maps';
+
+import SimpleMap from '../pages/weather';
+
+
 import '../css/universal.css';
 import '../css/city.css';
+
+const containerStyle = {
+  width: '400px',
+  height: '400px',
+}
 
 const City = () => {
   const location = useLocation();
   const [ data, setData ] = useState( [] );
   const [ measure, setMeasure ] = useState( 'metric' );
+  // const [ longitude, setLon ] = useState(  ) ;
+  // const [ latitude, setLat ] = useState(  );
 
+  const [ coord, setCoord ] = useState( [] );
+    
+  const [map, setMap] = React.useState(null);
   const url = process.env.REACT_APP_NODE_URL;
-  
+
   const city = getCity();
 
   useEffect(  ( ) => {
@@ -29,15 +46,96 @@ const City = () => {
     const measureSplit = pathName.split("&");
 
     setMeasure( measureSplit[1]);
+
     return await weatherData;
   };
 
+
+
   const getParams = () => { 
-    
     alert( window.location.pathname );
   }
 
+  const mapStyles = {
+    width: '100%',
+    height: '100%'
+  };
+  //   function MyMap ( ) {
+      
+      
+
+    // console.log( coord );
+
+  //     // console.log( cityLocation) ;
+  //     const lat = data.coord.lat;
+  //     const lon = data.coord.lon;
+  //     const cityLocation = {
+  //       lat: parseFloat(lat),
+  //       lng: parseFloat(lon),
+  //   }
+
+  //   const [map, setMap] = React.useState(null)
+  //     const onLoad = React.useCallback(function callback(map) {
+  //         const bounds = new window.google.maps.LatLngBounds(cityLocation);
   
+  //         alert( bounds );
+  //         map.fitBounds(bounds);
+          
+  //     alert( map );
+  //         setMap(map);
+  //     }, []);
+  
+  //     return  loadMap ? ( 
+  //       <Map
+  //       google={this.props.google}
+  //       zoom={4}
+  //       style={mapStyles}
+  //       initialCenter={cityLocation}
+  //     />
+  //     ) : <div>Loading...</div>
+  // }
+
+// console.log( data.coord );
+
+
+//  setLat( data.coord.lat );
+  // const latitude = MyMap( data.coord.lat, data.coord.lon );
+
+  // alert( latitude) ;
+  
+//   function SimpleMap( lat, lon){
+//   const defaultProps = {
+//     center: {
+//       lat: {lat},
+//       lng: {lon}
+//     },
+//     zoom: 13
+//   };
+
+//   return (
+//     // Important! Always set the container height explicitly
+//     <div style={{ height: '100vh', width: '100%' }}>
+//       <GoogleMapReact
+//         bootstrapURLKeys={{ key: "AIzaSyBSmDv6_ds8uxNQECiDO5QsNV3ud0xiXEY" }}
+//         defaultCenter={defaultProps.center}
+//         defaultZoom={defaultProps.zoom}
+//       >
+//         <AnyReactComponent
+//           lat={59.955413}
+//           lng={30.337844}
+//           text="My Marker"
+//         />
+//       </GoogleMapReact>
+//     </div>
+//   );
+// }
+
+ 
+
+
+
+  // return
+
   if ( data.hasOwnProperty('cod') && data.cod == 404 ){ 
     return (
       <div className="container">
@@ -45,8 +143,11 @@ const City = () => {
       </div>
     )
   } else if ( data != '' ) {
+    
+    // fetchCords();
     return (
       <div className="container">
+    
         <div className="weatherEl">
           <div>
             <h1>Weather for {data.name} in {data.sys.country}</h1>
@@ -64,7 +165,16 @@ const City = () => {
               </div>
             </div>
           </div>
+          <h2>Map</h2>
 
+          <div className="row">
+          {getWeather()}
+
+
+
+
+
+        </div>
           {/* Sun */}
           <h2>Sun Rise and Set</h2>
           <div className="row">
@@ -403,6 +513,16 @@ const City = () => {
     const dateToTime = date.toTimeString() ;
     const timeSplit = dateToTime.split(" ");
     return timeSplit[0];
+  }
+
+  function getWeather() { 
+    // setCoord( data.coord );
+    // const obj = {data.coord};
+    //   setLon( data.coord.lon );
+    // setLat( data.coord.lat );
+    return ( 
+      <SimpleMap data={data.coord} />
+    );
   }
 
 }
