@@ -1,20 +1,14 @@
 import React, { useState, useRef } from "react";
-import { useNavigate  } from "react-router-dom";
-// require('./dotenv').config();#
 
 import '../css/universal.css';
 import '../css/header.css';
 
-
-
-const url = 'http://192.168.0.220:3000';
-
+const url = process.env.REACT_APP_BASE_URL;
 
 const Navbar = () => {
     const [ city, setCity ] = useState('');
     const [ measure, setMeasure ] = useState(  'metric' );
-    const inputCity = useRef();
-    const navigate = useNavigate();
+
 
     const handleMeasure = (event) => {
         event.preventDefault();

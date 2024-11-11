@@ -1,5 +1,4 @@
-const url = 'http://192.168.0.220:3001';
-const city = 'winlaton';
+const url = process.env.REACT_APP_NODE_URL;
 
 export const getWeather = async ( ) => {
     const rawResponse = await fetch(`${url}/${city}`);
