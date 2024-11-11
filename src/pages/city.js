@@ -405,7 +405,7 @@ const City = () => {
   //       // Important! Always set the container height explicitly
   //       <div style={{ height: '50vh', width: '100%' }}>
   //         <GoogleMapReact
-  //           bootstrapURLKeys={{ key: "AIzaSyBSmDv6_ds8uxNQECiDO5QsNV3ud0xiXEY" }}
+  //           bootstrapURLKeys={{ key: "" }}
   //           defaultCenter={defaultProps.center}
   //           defaultZoom={defaultProps.zoom}
   //         >
