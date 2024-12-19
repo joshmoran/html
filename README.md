@@ -14,8 +14,8 @@ To successfully run the program, please follow these steps:
    - REACT_APP_BASE_URL = url for the react app
      - e.g. "127.0.0.1:3000"
    - REACT_APP_NODE_URL = url for the backend app
-     - e.g. "127.0.0.1:30001"
-     - This should match the "PORT" in the .env within the backend 
+     - e.g. "127.0.0.1:3001"
+     - The port on this address should match the "PORT" in the .env within the backend 
 3. In a terminal run, "npm install"
 4. then "npm start"
 
